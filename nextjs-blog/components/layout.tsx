@@ -1,12 +1,17 @@
+import { FC } from "react";
 import Head from "next/head";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 
-const name = "Your Name";
-export const siteTitle = "Next.js Sample Website";
+const name = "Your Name" as const;
+export const siteTitle = "Next.js Sample Website" as const;
 
-export default function Layout({ children, home }) {
+type Props = {
+  home?: boolean;
+};
+
+const Layout: FC<Props> = ({ children, home }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -63,4 +68,6 @@ export default function Layout({ children, home }) {
       )}
     </div>
   );
-}
+};
+
+export default Layout;
